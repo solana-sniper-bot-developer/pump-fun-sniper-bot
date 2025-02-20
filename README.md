@@ -1,8 +1,8 @@
 # Solana GRPC Ultra-Fast pump fun migration to raydium sniper bot
-
-This is a perfect, ultra-fast raydium sniper bot which snipe tokens migrated from pump.fun to raydium using geyser grpc.
-
 This bot buy all tokens migrated from pump.fun to raydium quickly with low price and sell after some time. You can customize buy and sell logic as you like.
+
+# Overview
+This pump fun sniper bot is a perfect, ultra-fast raydium sniper bot which snipe tokens migrated from pump.fun to raydium using geyser grpc.
 
 # Requirements
 This bot use the corvus's great grpc and rpc , so you don't need to purchase any expensive grpc or rpc service.
