@@ -1,4 +1,4 @@
-# Solana GRPC Ultra-Fast pump.fun migration to raydium sniper bot
+# Solana GRPC Ultra-Fast pump fun migration to raydium sniper bot
 
 This is a perfect, ultra-fast raydium sniper bot which snipe tokens migrated from pump.fun to raydium using geyser grpc.
 
