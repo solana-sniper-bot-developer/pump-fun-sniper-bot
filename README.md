@@ -18,3 +18,6 @@ This bot use the corvus's great grpc and rpc , so you don't need to purchase any
 # Commands
 - npm i
 - npm run start
+
+# Important
+- Project will keep updating and add the best stragety ,so pay attention to download new updates.
